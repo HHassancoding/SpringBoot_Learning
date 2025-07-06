@@ -1,5 +1,29 @@
 ### GET request to example server
-GET https://examples.http-client.intellij.net/get
-    ?generated-in=IntelliJ IDEA
+GET http://localhost:8080
 
-###
+### Getting the card
+GET http://localhost:8080/api/card/get
+
+### Saving the data
+POST http://localhost:8080/api/card/post
+Content-Type: application/json
+
+{
+  "attack": 25000,
+  "name": "Oblelisk",
+  "level": 10
+}
+
+### Delete Card
+DELETE http://localhost:8080/api/card/delete/Blue%20eyes
+
+
+### Update Card
+PUT http://localhost:8080/api/card/update/Oblelisk
+Content-Type: application/json
+
+{
+  "attack": 2500 ,
+  "name": "Oblelisk",
+  "level": 10
+}
