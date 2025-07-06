@@ -2,7 +2,7 @@ package com.example.cardapi;
 
 import java.util.Objects;
 
-public class Cards {
+public class Card {
 
 
     private int attack;
@@ -10,11 +10,14 @@ public class Cards {
     private int level;
 
 
-    public Cards(int attack, String name, int level) {
+    public Card(int attack, String name, int level) {
         this.attack = attack;
         this.name = name;
         this.level = level;
     }
+    public Card(){
+    }
+
 
     public int getLevel() {
         return level;
@@ -43,7 +46,7 @@ public class Cards {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Cards cards = (Cards) o;
+        Card cards = (Card) o;
         return attack == cards.attack && level == cards.level && Objects.equals(name, cards.name);
     }
 

@@ -1,32 +1,45 @@
 package com.example.cardapi;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("api/card")
-
-
+@RequestMapping("/api/card")
 public class CardController {
+    private final CardService cardService;
 
-    @GetMapping
-    public List<Cards> getCards(){
-        return List.of(
-                new Cards(
-                        3000,
-                        "Blue eyes White Dragon",
-                        7
-                ),
-                new Cards(
-                        2000,
-                        "Red Dragon",
-                        6
-                )
-        );
+
+    @Autowired
+    public CardController(CardService cardService) {
+        this.cardService = cardService;
     }
 
+
+    @GetMapping("/get")
+    public List<Card> getAllCard(){
+        return cardService.getCards();
+    }
+
+
+    @PostMapping("/post")
+    public String addCard(@RequestBody Card card){
+        cardService.addCards(card);
+        return "Added " + card.getName();
+    }
+
+    @DeleteMapping("/delete/{name}")
+    public String deleteCard(@PathVariable String name){
+        cardService.deleteCards(name);
+        return name + " Deleted";
+    }
+
+    @PutMapping("/update/{name}")
+    public String updateCard(@PathVariable String name, @RequestBody Card card){
+        cardService.updateCards(name, card);
+        return "Updated " + card.getName();
+
+    }
 
 }
