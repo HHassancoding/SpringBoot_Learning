@@ -1,9 +1,18 @@
-package com.example.cardapi;
+package Entity;
+
+import jakarta.persistence.*;
 
 import java.util.Objects;
-
+@Entity
 public class Card {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "deck_id")
+    private Deck deck;
 
     private int attack;
     private String name;
@@ -18,6 +27,9 @@ public class Card {
     public Card(){
     }
 
+    public Long getId() {
+        return id;
+    }
 
     public int getLevel() {
         return level;
@@ -53,5 +65,12 @@ public class Card {
     @Override
     public int hashCode() {
         return Objects.hash(attack, name, level);
+    }
+
+    public Deck getDeck() {
+        return deck;
+    }
+    public void setDeck(Deck deck) {
+        this.deck = deck;
     }
 }

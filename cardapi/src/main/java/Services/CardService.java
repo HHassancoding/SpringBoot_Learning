@@ -1,4 +1,6 @@
-package com.example.cardapi;
+package Services;
+
+import Entity.Card;
 
 import java.util.List;
 

@@ -7,5 +7,35 @@
 <body>
     <h1> Hola amigo welcome to the new world</h1>
 
+    <h2>Delete a Card</h2>
+
+    <input type="text" id="cardName" placeholder="Enter card name" />
+    <button onclick="deleteCard()">Delete Card</button>
+
+    <p id="result"></p>
+
+
+
+    <script>
+        function deleteCard(){
+            const name  = document.getElementById("cardName").value;
+
+            fetch(`http://localhost:8080/api/card/delete/${name}`, {
+                method: 'DELETE'
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('result').innerText = `Card '${name}' deleted.`;
+                } else {
+                    document.getElementById('result').innerText = `Failed to delete card '${name}'.`;
+                }
+            })
+            .catch(error => {
+                document.getElementById('result').innerText = 'Error: ' + error;
+            });
+
+        }
+    </script>
+
 </body>
 </html>

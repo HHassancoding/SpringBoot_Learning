@@ -9,13 +9,13 @@ POST http://localhost:8080/api/card/post
 Content-Type: application/json
 
 {
-  "attack": 25000,
+  "attack": 26000,
   "name": "Oblelisk",
   "level": 10
 }
 
 ### Delete Card
-DELETE http://localhost:8080/api/card/delete/Blue%20eyes
+DELETE http://localhost:8080/api/card/delete/Obelisk
 
 
 ### Update Card
@@ -23,7 +23,24 @@ PUT http://localhost:8080/api/card/update/Oblelisk
 Content-Type: application/json
 
 {
-  "attack": 2500 ,
+  "attack": 2400 ,
   "name": "Oblelisk",
   "level": 10
 }
+
+### Getting the Decks
+
+GET http://localhost:8080/decks/get
+
+
+### Creating a Deck
+POST http://localhost:8080/decks/post
+Content-Type: application/json
+
+{
+    "name": "Second Deck"
+}
+
+### Deleting a deck
+DELETE http://localhost:8080/decks/delete/Starter%20Deck
+
