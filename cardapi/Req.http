@@ -38,9 +38,18 @@ POST http://localhost:8080/decks/post
 Content-Type: application/json
 
 {
-    "name": "Second Deck"
+    "name": "Starter Deck"
 }
 
 ### Deleting a deck
 DELETE http://localhost:8080/decks/delete/Starter%20Deck
 
+### Adding a card to the deck
+POST http://localhost:8080/api/card/deck/addCard/Starter%20Deck
+content-Type: application/json
+
+{
+  "name": "Summoned Skull",
+  "attack": 2500,
+  "level": 6
+}

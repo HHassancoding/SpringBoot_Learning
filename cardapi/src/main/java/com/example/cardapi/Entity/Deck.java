@@ -1,6 +1,7 @@
 package com.example.cardapi.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -15,7 +16,8 @@ public class Deck {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany (mappedBy = "deck", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<Card> cards;
 
     public Deck(String name) {

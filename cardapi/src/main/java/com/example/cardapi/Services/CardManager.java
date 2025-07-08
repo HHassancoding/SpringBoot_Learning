@@ -2,10 +2,13 @@ package com.example.cardapi.Services;
 
 
 import com.example.cardapi.Entity.Card;
+import com.example.cardapi.Entity.Deck;
 import com.example.cardapi.Repositories.CardRepo;
+import com.example.cardapi.Repositories.DeckRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -13,10 +16,12 @@ import java.util.stream.Collectors;
 public class CardManager implements CardService {
 
     private final CardRepo cardRepository;
+    private final DeckRepo deckRepository;
 
 
-    public CardManager(CardRepo cardRepository) {
+    public CardManager(CardRepo cardRepository, DeckRepo deckRepository) {
         this.cardRepository = cardRepository;
+        this.deckRepository = deckRepository;
     }
 
     @Override
@@ -37,5 +42,16 @@ public class CardManager implements CardService {
     public void updateCards(String name, Card updateCard) {
         deleteCards(name);
         cardRepository.save(updateCard);
+    }
+
+    @Override
+    public Card addCardToDeck(String name, Card card) {
+
+        Optional<Deck> optionalDeck = deckRepository.findByName(name);
+
+        Deck deck = optionalDeck.orElseThrow(() -> new RuntimeException("Deck not found"));
+        card.setDeck(deck);
+        return cardRepository.save(card);
+
     }
 }

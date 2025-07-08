@@ -12,6 +12,8 @@ public interface CardService {
 
     void deleteCards(String name);
 
-    void updateCards( String name, Card card);
+    void updateCards(String name, Card card);
+
+    Card addCardToDeck(String name, Card card);
 
 }

@@ -43,5 +43,9 @@ public class CardController {
         return "Updated " + card.getName();
 
     }
+    @PostMapping("/deck/addCard/{name}")
+    public Card addCardToDeck(@PathVariable String name, @RequestBody Card card){
+        return cardService.addCardToDeck(name, card);
+    }
 
 }

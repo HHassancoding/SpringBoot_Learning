@@ -1,5 +1,7 @@
 package com.example.cardapi.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -12,6 +14,7 @@ public class Card {
 
     @ManyToOne
     @JoinColumn(name = "deck_id")
+    @JsonBackReference
     private Deck deck;
 
     private int attack;
