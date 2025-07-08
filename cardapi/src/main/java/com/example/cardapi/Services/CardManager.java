@@ -1,8 +1,8 @@
-package Services;
+package com.example.cardapi.Services;
 
 
-import Entity.Card;
-import Repositories.CardRepo;
+import com.example.cardapi.Entity.Card;
+import com.example.cardapi.Repositories.CardRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @Service
 public class CardManager implements CardService {
 
-    private CardRepo cardRepository;
+    private final CardRepo cardRepository;
 
 
     public CardManager(CardRepo cardRepository) {

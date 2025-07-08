@@ -1,4 +1,4 @@
-package Controllers;
+package com.example.cardapi.Controllers;
 
 
 import org.springframework.stereotype.Controller;

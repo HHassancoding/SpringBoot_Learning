@@ -1,7 +1,7 @@
-package Services;
+package com.example.cardapi.Services;
 
-import Entity.Deck;
-import Repositories.DeckRepo;
+import com.example.cardapi.Entity.Deck;
+import com.example.cardapi.Repositories.DeckRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

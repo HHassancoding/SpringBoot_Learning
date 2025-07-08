@@ -1,4 +1,4 @@
-package Entity;
+package com.example.cardapi.Entity;
 
 import jakarta.persistence.*;
 

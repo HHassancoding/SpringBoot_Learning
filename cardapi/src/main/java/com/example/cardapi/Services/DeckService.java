@@ -1,6 +1,6 @@
-package Services;
+package com.example.cardapi.Services;
 
-import Entity.Deck;
+import com.example.cardapi.Entity.Deck;
 
 import java.util.List;
 

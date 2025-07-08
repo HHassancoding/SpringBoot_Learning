@@ -1,8 +1,8 @@
-package Controllers;
+package com.example.cardapi.Controllers;
 
 
-import Entity.Deck;
-import Services.DeckService;
+import com.example.cardapi.Entity.Deck;
+import com.example.cardapi.Services.DeckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
